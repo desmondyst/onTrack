@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-hojawnnw4=9ua*s9@uu)x)7f$i_65a&zg9r14s@mw@$b8=ht8(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -144,8 +144,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-# for vercel
-import os
-
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')

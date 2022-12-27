@@ -1,0 +1,17 @@
+{% extends 'main.html' %} {% block content %}
+
+<div>
+    <!-- action is "" means send it to the currnt URL -->
+    <form method="POST" action="">
+        <!-- send this taken along to prevent cross site forgery -->
+        {% csrf_token %}
+
+        <!-- form is passed in from createRoom method in views.py -->
+        <!-- Wrap around -->
+        {{form.as_p}}
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+{% endblock content %}

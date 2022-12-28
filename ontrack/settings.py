@@ -153,7 +153,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-
-
+# for deployment CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'https://ontrack.up.railway.app'
+]
 
 

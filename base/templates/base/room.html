@@ -21,7 +21,7 @@
                             ></path>
                         </svg>
                     </a>
-                    <h3>Study Room</h3>
+                    <h3>Post</h3>
                 </div>
 
                 {% if room.host == request.user %}
@@ -97,7 +97,7 @@
                         <span>{{room.created|timesince}} ago</span>
                     </div>
                     <div class="room__hosted">
-                        <p>Hosted By</p>
+                        <p>By</p>
                         <a
                             href="{% url 'user-profile' room.host.id %}"
                             class="room__author"

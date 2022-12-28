@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-hojawnnw4=9ua*s9@uu)x)7f$i_65a&zg9r14s@mw@$b8=ht8(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,15 +125,22 @@ STATIC_URL = '/static/'
 # get prefix by /images
 MEDIA_URL = '/images/'
 
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
+
+import os
+
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # tell django where to upload to upload the media such as profile picture
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
+# for deployment
 
-# STATIC_ROOT = 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type

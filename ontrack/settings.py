@@ -57,6 +57,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
     "corsheaders.middleware.CorsMiddleware",
+
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     
 ]
 
@@ -140,7 +142,8 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # for deployment
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
@@ -149,5 +152,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+
 
 

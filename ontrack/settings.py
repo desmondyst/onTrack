@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-hojawnnw4=9ua*s9@uu)x)7f$i_65a&zg9r14s@mw@$b8=ht8(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -155,7 +155,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # for deployment CSRF
 CSRF_TRUSTED_ORIGINS = [
-    'https://ontrack.up.railway.app'
+    'https://ontrack.up.railway.app',
+    # added this
+    'https://on-track-wheat.vercel.app/'
 ]
 
 

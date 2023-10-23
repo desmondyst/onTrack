@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-hojawnnw4=9ua*s9@uu)x)7f$i_65a&zg9r14s@mw@$b8=ht8(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = [".vercel.app", "127.0.0.1", "3.27.95.193"]
 
 
 # Application definition
@@ -37,15 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "base.apps.BaseConfig",
-
-    'rest_framework',
+    "rest_framework",
     "corsheaders",
 ]
 
 #  the name of the Django model that you wish to use as your user model.
-AUTH_USER_MODEL = 'base.User'
+AUTH_USER_MODEL = "base.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -55,11 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
     "corsheaders.middleware.CorsMiddleware",
-
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    
 ]
 
 ROOT_URLCONF = "ontrack.urls"
@@ -67,7 +62,7 @@ ROOT_URLCONF = "ontrack.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates'],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -96,16 +91,26 @@ WSGI_APPLICATION = "ontrack.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME":'ontrack',
-        "USER":'postgres',
-        "PASSWORD":'postgres',
-        'HOST':'localhost',
-        'PORT':'5432'
-
+        "NAME": "ontrack",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
-
+# AWS RDS
+# make the website extremely slow when running from localhost
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "ontrack_aws",
+#         "USER": "postgres",
+#         "PASSWORD": "postgres",
+#         "HOST": "ontrack-aws.cuxqrsvjwvtx.ap-southeast-2.rds.amazonaws.com",
+#         "PORT": "5432",
+#     }
+# }
 
 
 # Password validation
@@ -115,9 +120,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 
@@ -137,9 +148,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 # URL to use when referring to static files located in STATIC_ROOT.
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 # get prefix by /images
-MEDIA_URL = '/images/'
+MEDIA_URL = "/images/"
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'static'
@@ -147,12 +158,10 @@ MEDIA_URL = '/images/'
 
 import os
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # tell django where to upload to upload the media such as profile picture
-MEDIA_ROOT = BASE_DIR / 'static/images'
+MEDIA_ROOT = BASE_DIR / "static/images"
 
 # for deployment
 
@@ -169,9 +178,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # for deployment CSRF
 CSRF_TRUSTED_ORIGINS = [
-    'https://ontrack.up.railway.app',
+    "https://ontrack.up.railway.app",
     # added this
-    'https://on-track-wheat.vercel.app/'
+    "https://on-track-wheat.vercel.app/",
 ]
-
-
